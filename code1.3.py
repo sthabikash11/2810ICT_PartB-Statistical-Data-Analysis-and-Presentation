@@ -5,9 +5,16 @@ from tkinter import messagebox
 from tkinter import ttk
 import tkinter.scrolledtext as scrolledtext
 
+column_data_types = {
+    43: str,
+    61: str,
+    62: str,
+    87: str
+}
+
 # Load CSV files into DataFrames
 calendar_data = pd.read_csv('calendar_dec18.csv')
-listings_data = pd.read_csv('listings_dec18.csv')
+listings_data = pd.read_csv('listings_dec18.csv', dtype=column_data_types, low_memory=False)
 reviews_data = pd.read_csv('reviews_dec18.csv')
 
 # Function to filter data based on user input
